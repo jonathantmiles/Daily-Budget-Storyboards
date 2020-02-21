@@ -30,7 +30,12 @@ class LineItemTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LineItemCell", for: indexPath)
 
-        cell.textLabel?.text = tableTest?[indexPath.row].itemName
+        guard let lineItem = tableTest?[indexPath.row] else { return cell }
+        cell.textLabel?.text = lineItem.itemName
+        cell.detailTextLabel?.text =  lineItem.category.rawValue
+        let label = UILabel.init(frame: CGRect(x:0,y:0,width:100,height:20))
+        label.text = String(lineItem.amount)
+        cell.accessoryView = label
 
         return cell
     }
