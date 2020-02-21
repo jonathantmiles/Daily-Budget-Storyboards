@@ -3,10 +3,11 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Title-->
         <scene sceneID="IgD-fe-sT6">
             <objects>
                 <tableViewController id="RtA-uX-eXM" customClass="LineItemTableViewController" customModule="DailyBudget" customModuleProvider="target" sceneMemberID="viewController">
@@ -45,11 +46,70 @@
                             <outlet property="delegate" destination="RtA-uX-eXM" id="ZWU-Rt-RRL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="ZZh-ca-MDG"/>
+                    <navigationItem key="navigationItem" title="Title" id="S1v-FO-DkR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="CCx-Va-5k0">
+                            <connections>
+                                <segue destination="NzV-UM-Mb8" kind="show" id="i7w-NQ-Glf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07T-0A-dxu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="370" y="146"/>
+        </scene>
+        <!--Add New Line Item View Controller-->
+        <scene sceneID="leo-Ih-EGD">
+            <objects>
+                <viewController id="NzV-UM-Mb8" customClass="AddNewLineItemViewController" customModule="DailyBudget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vca-uf-Lkg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IaX-if-oFj">
+                                <rect key="frame" x="20" y="128" width="374" height="314"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E0R-Tv-Ukb">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fvt-kf-LNd">
+                                        <rect key="frame" x="0.0" y="34" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I5R-mW-AGn">
+                                        <rect key="frame" x="0.0" y="68" width="374" height="216"/>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="db9-NP-3lD">
+                                        <rect key="frame" x="0.0" y="284" width="374" height="30"/>
+                                        <state key="normal" title="Add New Line Item"/>
+                                        <connections>
+                                            <action selector="addNewLineItem:" destination="NzV-UM-Mb8" eventType="touchUpInside" id="e7t-Sn-7MN"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="KvK-h4-dCP" firstAttribute="trailing" secondItem="IaX-if-oFj" secondAttribute="trailing" constant="20" id="B8x-Sr-2yi"/>
+                            <constraint firstItem="IaX-if-oFj" firstAttribute="top" secondItem="KvK-h4-dCP" secondAttribute="top" constant="40" id="I0U-bl-aMu"/>
+                            <constraint firstItem="IaX-if-oFj" firstAttribute="leading" secondItem="KvK-h4-dCP" secondAttribute="leading" constant="20" id="xhy-ki-dGb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KvK-h4-dCP"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RZi-mH-H8B"/>
+                    <connections>
+                        <outlet property="amountTextField" destination="fvt-kf-LNd" id="sYB-Z2-ghI"/>
+                        <outlet property="categoryPickerView" destination="I5R-mW-AGn" id="4YY-oW-guL"/>
+                        <outlet property="nameTextField" destination="E0R-Tv-Ukb" id="be1-Xl-24h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zVi-Ar-lF4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1159" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2bd-bQ-SUV">

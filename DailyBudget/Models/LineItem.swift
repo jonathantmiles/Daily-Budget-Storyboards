@@ -15,9 +15,9 @@ struct LineItem {
     let date = Date()
 }
 
-enum CategoryTypes: String {
-    case food = "food"
-    case groceries = "groceries"
-    case transportation = "transportation"
-    case discretionary = "discretionary"
+enum CategoryTypes: String, CaseIterable {
+    case food
+    case groceries
+    case transportation
+    case discretionary
 }
