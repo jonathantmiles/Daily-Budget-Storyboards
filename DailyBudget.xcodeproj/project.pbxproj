@@ -17,6 +17,7 @@
 		F855B9CC240DBD9200B03445 /* CategoryColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = F855B9CB240DBD9200B03445 /* CategoryColumn.swift */; };
 		F855B9CE240DBF6300B03445 /* CategoryColumnController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F855B9CD240DBF6300B03445 /* CategoryColumnController.swift */; };
 		F855B9D0240ECBEF00B03445 /* BudgetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F855B9CF240ECBEF00B03445 /* BudgetController.swift */; };
+		F855B9D2240F04CF00B03445 /* BudgetTargetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F855B9D1240F04CF00B03445 /* BudgetTargetTableViewController.swift */; };
 		F8A0AC2C23FF608500EBFA41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0AC2B23FF608500EBFA41 /* AppDelegate.swift */; };
 		F8A0AC2E23FF608500EBFA41 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A0AC2D23FF608500EBFA41 /* SceneDelegate.swift */; };
 		F8A0AC3323FF608500EBFA41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8A0AC3123FF608500EBFA41 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		F855B9CB240DBD9200B03445 /* CategoryColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryColumn.swift; sourceTree = "<group>"; };
 		F855B9CD240DBF6300B03445 /* CategoryColumnController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryColumnController.swift; sourceTree = "<group>"; };
 		F855B9CF240ECBEF00B03445 /* BudgetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetController.swift; sourceTree = "<group>"; };
+		F855B9D1240F04CF00B03445 /* BudgetTargetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTargetTableViewController.swift; sourceTree = "<group>"; };
 		F8A0AC2823FF608500EBFA41 /* DailyBudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyBudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8A0AC2B23FF608500EBFA41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8A0AC2D23FF608500EBFA41 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			children = (
 				F855B9C324008D7400B03445 /* LineItemTableViewController.swift */,
 				F855B9C52400999E00B03445 /* AddNewLineItemViewController.swift */,
+				F855B9D1240F04CF00B03445 /* BudgetTargetTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				F855B9CE240DBF6300B03445 /* CategoryColumnController.swift in Sources */,
 				F855B9CA2400A1A700B03445 /* DateController.swift in Sources */,
 				F855B9C424008D7400B03445 /* LineItemTableViewController.swift in Sources */,
+				F855B9D2240F04CF00B03445 /* BudgetTargetTableViewController.swift in Sources */,
 				F855B9C824009C1B00B03445 /* CategoryHelper.swift in Sources */,
 				F855B9D0240ECBEF00B03445 /* BudgetController.swift in Sources */,
 				F855B9CC240DBD9200B03445 /* CategoryColumn.swift in Sources */,
