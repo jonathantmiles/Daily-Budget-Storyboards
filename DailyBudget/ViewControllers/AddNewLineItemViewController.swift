@@ -17,6 +17,19 @@ class AddNewLineItemViewController: UIViewController, UIPickerViewDataSource, UI
     }
     
     @IBAction func addNewLineItem(_ sender: Any) {
+        if let name = nameTextField.text,
+            let amountString = amountTextField.text,
+            let amount = Double(amountString),
+            let lic = lineItemController {
+                let category = CategoryTypes.allCases[categoryPickerView.selectedRow(inComponent: 0)]
+            
+                lic.addNewLineItem(itemName: name, category: category, amount: amount, date: Date())
+            
+            let prevVC = navigationController?.viewControllers[0] as? LineItemTableViewController
+            prevVC?.lineItemController = lic
+            
+        }
+//        let numOfVCs = navigationController?.viewControllers.count
         // use the controller method to create and save a new line item
         navigationController?.popViewController(animated: true)
     }
@@ -42,15 +55,18 @@ class AddNewLineItemViewController: UIViewController, UIPickerViewDataSource, UI
         return CategoryTypes.allCases[row].rawValue
     }
     
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let destVC = segue.destination as! LineItemTableViewController
+        if let lic = lineItemController {
+            destVC.lineItemController = lic
+        }
     }
-    */
+    
+    // MARK: - Properties
+    
+    var lineItemController: LineItemController?
     
     // MARK: - UIElements
     

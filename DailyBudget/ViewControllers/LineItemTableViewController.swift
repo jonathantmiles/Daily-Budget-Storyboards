@@ -10,7 +10,8 @@ import UIKit
 
 class LineItemTableViewController: UITableViewController {
 
-    var tableTest: [LineItem]?
+    var lineItemController = LineItemController()
+//    var tableTest: [LineItem]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,20 +26,30 @@ class LineItemTableViewController: UITableViewController {
         
         let lineItem1 = LineItem(itemName: "donuts", category: .food, amount: 1.85, date: date1)
         let lineItem2 = LineItem(itemName: "Italian Soup fixings", category: .groceries, amount: 14.92, date: date2)
-        tableTest = [lineItem1, lineItem2]
+        if lineItemController.lineItems.isEmpty {
+            lineItemController.lineItems = [lineItem1, lineItem2]
+        }
+        
+//        updateViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateViews()
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return tableTest?.count ?? 0
+        return lineItemController.lineItems.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LineItemCell", for: indexPath)
 
-        guard let lineItem = tableTest?[indexPath.row] else { return cell }
+        let lineItem = lineItemController.lineItems[indexPath.row]
         cell.textLabel?.text = lineItem.itemName
         cell.detailTextLabel?.text =  lineItem.category.rawValue
         let label = UILabel.init(frame: CGRect(x:0,y:0,width:100,height:20))
@@ -47,15 +58,19 @@ class LineItemTableViewController: UITableViewController {
 
         return cell
     }
+    
+    // MARK: - helper methods
+    
+    private func updateViews() {
+        tableView.reloadData()
+    }
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
+        let destVC = segue.destination as? AddNewLineItemViewController
+        destVC?.lineItemController = lineItemController // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }

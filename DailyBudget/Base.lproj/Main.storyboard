@@ -49,7 +49,7 @@
                     <navigationItem key="navigationItem" title="Title" id="S1v-FO-DkR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="CCx-Va-5k0">
                             <connections>
-                                <segue destination="NzV-UM-Mb8" kind="show" id="i7w-NQ-Glf"/>
+                                <segue destination="NzV-UM-Mb8" kind="show" id="Vc6-gS-BmU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -67,7 +67,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IaX-if-oFj">
-                                <rect key="frame" x="20" y="128" width="374" height="314"/>
+                                <rect key="frame" x="20" y="128" width="374" height="530"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E0R-Tv-Ukb">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -82,8 +82,11 @@
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I5R-mW-AGn">
                                         <rect key="frame" x="0.0" y="68" width="374" height="216"/>
                                     </pickerView>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="3gO-Jl-kdu">
+                                        <rect key="frame" x="0.0" y="284" width="374" height="216"/>
+                                    </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="db9-NP-3lD">
-                                        <rect key="frame" x="0.0" y="284" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="500" width="374" height="30"/>
                                         <state key="normal" title="Add New Line Item"/>
                                         <connections>
                                             <action selector="addNewLineItem:" destination="NzV-UM-Mb8" eventType="touchUpInside" id="e7t-Sn-7MN"/>
