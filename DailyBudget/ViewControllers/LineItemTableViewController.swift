@@ -15,8 +15,16 @@ class LineItemTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let lineItem1 = LineItem(itemName: "donuts", category: .food, amount: 1.85)
-        let lineItem2 = LineItem(itemName: "Italian Soup fixings", category: .groceries, amount: 14.92)
+        let calendar = Calendar.current
+        
+        let dateComponents1 = DateComponents(calendar: calendar, year: 2020, month: 3, day: 1)
+        let dateComponents2 = DateComponents(calendar: calendar, year: 2020, month: 3, day: 3)
+        
+        let date1 = calendar.date(from: dateComponents1)!
+        let date2 = calendar.date(from: dateComponents2)!
+        
+        let lineItem1 = LineItem(itemName: "donuts", category: .food, amount: 1.85, date: date1)
+        let lineItem2 = LineItem(itemName: "Italian Soup fixings", category: .groceries, amount: 14.92, date: date2)
         tableTest = [lineItem1, lineItem2]
     }
 

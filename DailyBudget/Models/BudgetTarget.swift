@@ -21,7 +21,7 @@ struct BudgetTarget {
      
      */
     
-    var maxSpendPerIncrement: Float
+    var maxSpendPerIncrement: Double
     var category: CategoryTypes
     
     var increment: DateComponents // the length of time in human readable units that maxSpend is allotted for

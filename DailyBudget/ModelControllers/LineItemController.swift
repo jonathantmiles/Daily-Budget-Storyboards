@@ -12,22 +12,23 @@ class LineItemController {
     
     // CRUD:
     
-    func addNewLineItem(itemName: String, category: CategoryTypes, amount: Double) {
-        let newLineItem = LineItem(itemName: itemName, category: category, amount: amount)
+    func addNewLineItem(itemName: String, category: CategoryTypes, amount: Double, date: Date = Date()) {
+        let newLineItem = LineItem(itemName: itemName, category: category, amount: amount, date: date)
         lineItems.append(newLineItem)
         sortLineItems()
     }
     
     // CAUTION: this does not allow for changing the date as written; beware overreliance on Date as a UUID
-    func updateLineItem(lineItem: LineItem, itemName: String?, category: CategoryTypes?, amount: Double?) {
+    func updateLineItem(lineItem: LineItem, itemName: String?, category: CategoryTypes?, amount: Double?, date: Date?) {
         let index = lineItems.firstIndex { (target) -> Bool in
             return target.date == lineItem.date
         }
         if let itemName = itemName,
             let category = category,
             let amount = amount,
+            let date = date,
             let index = index {
-            let newLineItem = LineItem(itemName: itemName, category: category, amount: amount)
+            let newLineItem = LineItem(itemName: itemName, category: category, amount: amount, date: date)
             lineItems.remove(at: index)
             lineItems.insert(newLineItem, at: index)
         }

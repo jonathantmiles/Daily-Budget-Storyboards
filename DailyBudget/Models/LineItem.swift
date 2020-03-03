@@ -12,7 +12,7 @@ struct LineItem: Comparable {
     var itemName: String
     var category: CategoryTypes
     var amount: Double
-    let date = Date()
+    let date: Date
     
     static func < (lhs: LineItem, rhs: LineItem) -> Bool {
         if lhs.date < rhs.date {

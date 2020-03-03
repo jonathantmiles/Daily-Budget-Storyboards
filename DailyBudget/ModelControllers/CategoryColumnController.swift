@@ -32,6 +32,11 @@ class CategoryColumnController {
         return sum
     }
     
+    func compareTotalToBudgetTarget(ofCategory column: CategoryColumn) -> Double {
+        let total = calculateTotalOfLineItems(withinCategory: column)
+        return total - column.budgetTarget.maxSpendPerIncrement
+    }
+    
     func sortColumnAccordingToDate(_ column: inout CategoryColumn) {
         column.column.sort { $0 < $1 }
     }

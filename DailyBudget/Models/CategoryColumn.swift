@@ -11,4 +11,5 @@ import Foundation
 struct CategoryColumn {
     var category: CategoryTypes
     var column: [LineItem]
+    var budgetTarget: BudgetTarget
 }
