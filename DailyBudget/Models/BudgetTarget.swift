@@ -10,6 +10,17 @@ import Foundation
 
 struct BudgetTarget {
     
+    /*
+     budget would have a target value, a category, a goal date or goal length, a list of associated items, and a calculated value which is the target value less the values of the lineItems
+     alternately there is a category object, which has the associated lineItems and a target
+     
+     jobs: associate the lineItems with a category
+     assign budgetary values to categories
+     calculate budget targets live
+     
+     
+     */
+    
     var maxSpendPerIncrement: Float
     var category: CategoryTypes
     
