@@ -90,6 +90,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="B1e-3u-DRR" kind="show" id="E0A-tg-IfG"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -102,6 +105,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwz-ZN-per" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="386" y="834"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="Z7I-DI-vC9">
+            <objects>
+                <viewController id="B1e-3u-DRR" customClass="AddEditBudgetTargetViewController" customModule="DailyBudget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cTY-hV-55u">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cOx-k7-xft">
+                                <rect key="frame" x="20" y="128" width="374" height="270.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pud-r0-vst">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x8S-w1-cxx">
+                                        <rect key="frame" x="0.0" y="20.5" width="374" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kAP-Td-61l">
+                                        <rect key="frame" x="0.0" y="54" width="374" height="216"/>
+                                    </pickerView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="STQ-7w-Bwm" firstAttribute="trailing" secondItem="cOx-k7-xft" secondAttribute="trailing" constant="20" id="EfM-B7-8O8"/>
+                            <constraint firstItem="cOx-k7-xft" firstAttribute="top" secondItem="STQ-7w-Bwm" secondAttribute="top" constant="40" id="m54-oh-gbM"/>
+                            <constraint firstItem="cOx-k7-xft" firstAttribute="leading" secondItem="STQ-7w-Bwm" secondAttribute="leading" constant="20" id="tdN-PT-GwB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="STQ-7w-Bwm"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="A0p-o9-BXH"/>
+                    <connections>
+                        <outlet property="amountLabel" destination="pud-r0-vst" id="gbF-b3-HVj"/>
+                        <outlet property="amountTextField" destination="x8S-w1-cxx" id="7pp-ye-PSn"/>
+                        <outlet property="categoryPickerView" destination="kAP-Td-61l" id="WoY-vL-b1d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gva-Gq-kJG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1158" y="834"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tPl-FR-YhN">

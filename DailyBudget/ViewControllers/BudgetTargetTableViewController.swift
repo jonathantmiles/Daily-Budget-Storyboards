@@ -35,15 +35,13 @@ class BudgetTargetTableViewController: UITableViewController {
         return cell
     }
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+//        segue.identifier
+        let destVC = segue.destination as? AddEditBudgetTargetViewController
+        destVC?.budgetTarget = budgetController.targets?[tableView.indexPathForSelectedRow!.row]
     }
-    */
     
     // MARK: - Properties
     
