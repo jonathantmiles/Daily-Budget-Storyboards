@@ -58,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="370" y="146"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Title-->
         <scene sceneID="blY-92-0wI">
             <objects>
                 <tableViewController id="hH9-kS-Vhe" customClass="BudgetTargetTableViewController" customModule="DailyBudget" customModuleProvider="target" sceneMemberID="viewController">
@@ -91,7 +91,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="B1e-3u-DRR" kind="show" id="E0A-tg-IfG"/>
+                                    <segue destination="B1e-3u-DRR" kind="show" identifier="ShowDetailBudgetTarget" id="E0A-tg-IfG"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -100,7 +100,13 @@
                             <outlet property="delegate" destination="hH9-kS-Vhe" id="Esg-Tl-B8D"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="H7D-kU-fQ9"/>
+                    <navigationItem key="navigationItem" title="Title" id="ekq-I5-aTp">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Hbh-pa-hRc">
+                            <connections>
+                                <segue destination="B1e-3u-DRR" kind="show" identifier="AddNewBudgetTarget" id="Yxj-za-vhd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwz-ZN-per" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -115,7 +121,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cOx-k7-xft">
-                                <rect key="frame" x="20" y="128" width="374" height="270.5"/>
+                                <rect key="frame" x="20" y="128" width="374" height="300.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pud-r0-vst">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
@@ -123,14 +129,32 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x8S-w1-cxx">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lx5-mU-BY5">
                                         <rect key="frame" x="0.0" y="20.5" width="374" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpI-0i-wJA">
+                                                <rect key="frame" x="0.0" y="0.0" width="15.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x8S-w1-cxx">
+                                                <rect key="frame" x="15.5" y="0.0" width="358.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kAP-Td-61l">
-                                        <rect key="frame" x="0.0" y="54" width="374" height="216"/>
+                                        <rect key="frame" x="0.0" y="54.5" width="374" height="216"/>
                                     </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrI-wa-7AA">
+                                        <rect key="frame" x="0.0" y="270.5" width="374" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="saveChanges:" destination="B1e-3u-DRR" eventType="touchUpInside" id="Qb1-JR-mG8"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -147,6 +171,7 @@
                         <outlet property="amountLabel" destination="pud-r0-vst" id="gbF-b3-HVj"/>
                         <outlet property="amountTextField" destination="x8S-w1-cxx" id="7pp-ye-PSn"/>
                         <outlet property="categoryPickerView" destination="kAP-Td-61l" id="WoY-vL-b1d"/>
+                        <outlet property="saveChangesButtonLabel" destination="hrI-wa-7AA" id="TkM-Di-IaZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gva-Gq-kJG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -242,4 +267,7 @@
             <point key="canvasLocation" x="-549" y="146"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="E0A-tg-IfG"/>
+    </inferredMetricsTieBreakers>
 </document>

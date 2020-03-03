@@ -15,7 +15,15 @@ class BudgetTargetTableViewController: UITableViewController {
         
         let budgetTarget1 = BudgetTarget(maxSpendPerIncrement: 150.00, category: .discretionary, increment: DateComponents())
         let budgetTarget2 = BudgetTarget(maxSpendPerIncrement: 300.00, category: .food, increment: DateComponents())
-        budgetController.targets = [budgetTarget1, budgetTarget2]
+        if budgetController.targets == nil {
+            budgetController.targets = [budgetTarget1, budgetTarget2]
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -38,13 +46,17 @@ class BudgetTargetTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        segue.identifier
         let destVC = segue.destination as? AddEditBudgetTargetViewController
-        destVC?.budgetTarget = budgetController.targets?[tableView.indexPathForSelectedRow!.row]
+        destVC?.budgetController = budgetController
+        if segue.identifier == "ShowDetailBudgetTarget" {
+            let index = tableView.indexPathForSelectedRow!.row
+            destVC?.budgetTarget = budgetController.targets?[index]
+            destVC?.associatedIndex = index
+        }
     }
     
     // MARK: - Properties
     
-    let budgetController = BudgetController()
+    var budgetController = BudgetController()
 
 }

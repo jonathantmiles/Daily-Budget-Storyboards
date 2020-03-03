@@ -10,6 +10,20 @@ import Foundation
 
 class BudgetController {
     
+    // MARK: - BudgetTarget CRUD
+    
+    func addNewBudgetTarget(maxSpend: Double, category: CategoryTypes, increment: DateComponents) {
+        let newTarget = BudgetTarget(maxSpendPerIncrement: maxSpend, category: category, increment: increment)
+        targets?.append(newTarget)
+    }
+    
+    func replace(budgetTarget target: BudgetTarget, atIndex i: Int) {
+        targets?.remove(at: i)
+        targets?.insert(target, at: i)
+    }
+    
+    // MARK: - Properties
+    
     var targets: [BudgetTarget]?
     
     var columns: [CategoryColumn]?

@@ -16,9 +16,25 @@ class AddEditBudgetTargetViewController: UIViewController, UIPickerViewDataSourc
         setUpViews()
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//    }
+    @IBAction func saveChanges(_ sender: Any) {
+        
+        guard let maxSpendString = amountTextField.text,
+            let maxSpend = Double(maxSpendString),
+            let bc = budgetController,
+            let index = associatedIndex else { return }
+        let category = CategoryTypes.allCases[categoryPickerView.selectedRow(inComponent: 0)]
+        
+        if (budgetTarget != nil) {
+            let newBudgetTarget = BudgetTarget(maxSpendPerIncrement: maxSpend, category: category, increment: DateComponents())
+            bc.replace(budgetTarget: newBudgetTarget, atIndex: index)
+        } else {
+            bc.addNewBudgetTarget(maxSpend: maxSpend, category: category, increment: DateComponents())
+        }
+        
+        let prevVC = navigationController?.viewControllers[0] as? BudgetTargetTableViewController
+        prevVC?.budgetController = bc
+        navigationController?.popViewController(animated: true)
+    }
     
     // MARK: - helper functions
     
@@ -27,11 +43,13 @@ class AddEditBudgetTargetViewController: UIViewController, UIPickerViewDataSourc
         if (budgetTarget != nil) {
             amountLabel.text = budgetTarget?.category.rawValue
             if let incrementString = budgetTarget?.maxSpendPerIncrement {
-                amountTextField.text = String(format: "$ %.2f", incrementString)
+                amountTextField.text = String(format: "%.2f", incrementString)
             }
+            saveChangesButtonLabel.setTitle("Save Changes", for: .normal)
         } else {
             amountLabel.text = "Please enter the amount to be budgeted:"
             amountTextField.placeholder = "Enter a dollar amount:"
+            saveChangesButtonLabel.setTitle("Add New Budget Target", for: .normal)
         }
         categoryPickerView.dataSource = self
         categoryPickerView.delegate = self
@@ -64,8 +82,11 @@ class AddEditBudgetTargetViewController: UIViewController, UIPickerViewDataSourc
     // MARK: - Properties
     
     var budgetTarget: BudgetTarget?
+    var budgetController: BudgetController?
+    var associatedIndex: Int?
     
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var categoryPickerView: UIPickerView!
+    @IBOutlet weak var saveChangesButtonLabel: UIButton!
 }
