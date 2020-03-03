@@ -31,4 +31,10 @@ class CategoryColumnController {
         }
         return sum
     }
+    
+    func sortColumnAccordingToDate(_ column: inout CategoryColumn) {
+        column.column.sort { $0 < $1 }
+    }
+    
+    static var shared = CategoryColumnController()
 }
