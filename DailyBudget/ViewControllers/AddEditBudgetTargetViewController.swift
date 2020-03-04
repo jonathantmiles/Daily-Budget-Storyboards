@@ -20,11 +20,11 @@ class AddEditBudgetTargetViewController: UIViewController, UIPickerViewDataSourc
         
         guard let maxSpendString = amountTextField.text,
             let maxSpend = Double(maxSpendString),
-            let bc = budgetController,
-            let index = associatedIndex else { return }
+            let bc = budgetController else { return }
         let category = CategoryTypes.allCases[categoryPickerView.selectedRow(inComponent: 0)]
         
         if (budgetTarget != nil) {
+            let index = associatedIndex!
             let newBudgetTarget = BudgetTarget(maxSpendPerIncrement: maxSpend, category: category, increment: DateComponents())
             bc.replace(budgetTarget: newBudgetTarget, atIndex: index)
         } else {
@@ -39,20 +39,21 @@ class AddEditBudgetTargetViewController: UIViewController, UIPickerViewDataSourc
     // MARK: - helper functions
     
     private func setUpViews() {
+        categoryPickerView.dataSource = self
+        categoryPickerView.delegate = self
         
-        if (budgetTarget != nil) {
-            amountLabel.text = budgetTarget?.category.rawValue
-            if let incrementString = budgetTarget?.maxSpendPerIncrement {
-                amountTextField.text = String(format: "%.2f", incrementString)
-            }
+        if let budgetTarget = budgetTarget {
+            amountLabel.text = budgetTarget.category.rawValue
+            let incrementString = budgetTarget.maxSpendPerIncrement
+            amountTextField.text = String(format: "%.2f", incrementString)
             saveChangesButtonLabel.setTitle("Save Changes", for: .normal)
+            let index = CategoryTypes.allCases.firstIndex(of: budgetTarget.category)!
+            categoryPickerView.selectRow(index, inComponent: 0, animated: true)
         } else {
             amountLabel.text = "Please enter the amount to be budgeted:"
             amountTextField.placeholder = "Enter a dollar amount:"
             saveChangesButtonLabel.setTitle("Add New Budget Target", for: .normal)
         }
-        categoryPickerView.dataSource = self
-        categoryPickerView.delegate = self
     }
     
     // MARK: - PickerViewDataSource Methods

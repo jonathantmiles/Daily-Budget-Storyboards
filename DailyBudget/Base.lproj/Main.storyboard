@@ -39,6 +39,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="NzV-UM-Mb8" kind="show" identifier="ShowDetailLineItem" trigger="accessoryAction" id="rZj-E4-ZOh"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -49,7 +52,7 @@
                     <navigationItem key="navigationItem" title="Title" id="S1v-FO-DkR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="CCx-Va-5k0">
                             <connections>
-                                <segue destination="NzV-UM-Mb8" kind="show" id="Vc6-gS-BmU"/>
+                                <segue destination="NzV-UM-Mb8" kind="show" identifier="AddNewLineItem" id="nlZ-x0-Uea"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -91,7 +94,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="B1e-3u-DRR" kind="show" identifier="ShowDetailBudgetTarget" id="E0A-tg-IfG"/>
+                                    <segue destination="B1e-3u-DRR" kind="show" identifier="ShowDetailLineItem" id="Adb-Pw-a5v"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -146,7 +149,7 @@
                                         </subviews>
                                     </stackView>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kAP-Td-61l">
-                                        <rect key="frame" x="0.0" y="54.5" width="374" height="216"/>
+                                        <rect key="frame" x="0.0" y="54" width="374" height="216"/>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrI-wa-7AA">
                                         <rect key="frame" x="0.0" y="270.5" width="374" height="30"/>
@@ -264,6 +267,7 @@
                         <outlet property="amountTextField" destination="fvt-kf-LNd" id="sYB-Z2-ghI"/>
                         <outlet property="categoryPickerView" destination="I5R-mW-AGn" id="4YY-oW-guL"/>
                         <outlet property="nameTextField" destination="E0R-Tv-Ukb" id="be1-Xl-24h"/>
+                        <outlet property="saveChangesLabel" destination="db9-NP-3lD" id="vIY-Ep-fiF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zVi-Ar-lF4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -289,6 +293,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="E0A-tg-IfG"/>
+        <segue reference="nlZ-x0-Uea"/>
+        <segue reference="Adb-Pw-a5v"/>
     </inferredMetricsTieBreakers>
 </document>

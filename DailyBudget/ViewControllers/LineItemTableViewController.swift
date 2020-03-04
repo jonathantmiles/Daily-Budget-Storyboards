@@ -69,8 +69,13 @@ class LineItemTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destVC = segue.destination as? AddNewLineItemViewController
-        destVC?.lineItemController = lineItemController // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        destVC?.lineItemController = lineItemController
+        let index = (tableView.indexPathForSelectedRow?.row)!
+        if segue.identifier == "AddNewLineItem" {
+            
+        } else if segue.identifier == "ShowDetailLineItem" {
+            destVC?.lineItem = lineItemController.lineItems[index]
+        }
     }
 
 }
