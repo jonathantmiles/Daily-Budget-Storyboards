@@ -29,8 +29,6 @@ class AddNewLineItemViewController: UIViewController, UIPickerViewDataSource, UI
             prevVC?.lineItemController = lic
             
         }
-//        let numOfVCs = navigationController?.viewControllers.count
-        // use the controller method to create and save a new line item
         navigationController?.popViewController(animated: true)
     }
     
